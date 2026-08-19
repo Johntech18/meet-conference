@@ -160,10 +160,17 @@ fly deploy
 
 **Option C: Render**
 
-1. Create a new Web Service on [render.com](https://render.com)
+1. Create a new **Docker** service on [render.com](https://render.com)
 2. Connect your GitHub repo
-3. Set build command: `cd deploy && docker build -t livekit .`
-4. Set start command: `livekit-server --config /etc/livekit.yaml`
+3. Set **Dockerfile path** to `deploy/Dockerfile`
+4. Set environment variables:
+   ```
+   LIVEKIT_API_KEY=your-production-key
+   LIVEKIT_API_SECRET=your-production-secret
+   ```
+5. Deploy — you'll get a URL like `https://your-app.onrender.com`
+
+> **Note:** Use the "Docker" service type, not "Web Service". Docker is required for the container to run.
 
 **Generate secure credentials for production:**
 
