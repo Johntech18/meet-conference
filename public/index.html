@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet — Video Conferencing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- LANDING PAGE                                 -->
+    <!-- ============================================ -->
+    <div id="landing-page" class="page active">
+        <header class="header">
+            <div class="header-left">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="40" height="40">
+                    <path fill="#00897B" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                </svg>
+                <span class="logo-text">Meet</span>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" title="Settings">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="landing-content">
+            <div class="landing-hero">
+                <h1 class="hero-title">Video calls and meetings for everyone</h1>
+                <p class="hero-subtitle">Connect, collaborate, and celebrate from anywhere with a simple, secure video meeting</p>
+
+                <div class="action-cards">
+                    <div class="action-card">
+                        <button class="new-meeting-btn" id="new-meeting-btn">
+                            <svg viewBox="0 0 24 24" width="36" height="36">
+                                <path fill="currentColor" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                            </svg>
+                        </button>
+                        <span class="action-label">New meeting</span>
+                    </div>
+
+                    <div class="join-card">
+                        <div class="join-input-group">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="#5f6368">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                            <input type="text" id="meeting-code-input" placeholder="Enter a code or link" autocomplete="off">
+                        </div>
+                        <button class="join-btn" id="join-btn" disabled>Join</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="landing-illustration">
+                <div class="illustration-graphic">
+                    <div class="video-grid-demo">
+                        <div class="demo-tile tile-1"><div class="demo-avatar">👤</div></div>
+                        <div class="demo-tile tile-2"><div class="demo-avatar">👤</div></div>
+                        <div class="demo-tile tile-3"><div class="demo-avatar">👤</div></div>
+                        <div class="demo-tile tile-4"><div class="demo-avatar">👤</div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MEETING PAGE                                 -->
+    <!-- ============================================ -->
+    <div id="meeting-page" class="page">
+
+        <!-- Lobby / Waiting Room -->
+        <div id="lobby" class="lobby active">
+            <div class="lobby-container">
+                <h2 class="lobby-title">Ready to join?</h2>
+                <div class="lobby-preview">
+                    <video id="lobby-video" autoplay muted playsinline></video>
+                    <div id="lobby-video-off" class="lobby-video-off">
+                        <div class="lobby-avatar-large" id="lobby-avatar">?</div>
+                    </div>
+                </div>
+                <p class="lobby-room-info">Room: <span id="lobby-room-id"></span></p>
+
+                <div class="lobby-controls">
+                    <button class="lobby-control-btn" id="lobby-mic-btn" title="Toggle microphone">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                        </svg>
+                    </button>
+                    <button class="lobby-control-btn" id="lobby-cam-btn" title="Toggle camera">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="lobby-name-input">
+                    <input type="text" id="lobby-name" placeholder="Enter your name" maxlength="32" autocomplete="name">
+                </div>
+
+                <button class="join-now-btn" id="join-now-btn">Join now</button>
+            </div>
+        </div>
+
+        <!-- Meeting Header Bar (timer + participant count) -->
+        <div id="meeting-header-bar" class="meeting-header-bar" style="display:none;">
+            <div class="meeting-header-left">
+                <div class="meeting-timer-group">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" opacity="0.7">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <span id="meeting-timer" class="meeting-timer">00:00</span>
+                </div>
+                <div class="meeting-divider"></div>
+                <div class="meeting-participant-group">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" opacity="0.7">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    <span id="meeting-participant-count" class="meeting-participant-count">1</span>
+                </div>
+            </div>
+            <div class="meeting-header-center">
+                <span class="meeting-room-label" id="meeting-room-label"></span>
+            </div>
+            <div class="meeting-header-right"></div>
+        </div>
+
+        <!-- Video Grid Container (LiveKit mounts here) -->
+        <div id="video-grid" class="video-grid"></div>
+
+        <!-- Floating Emoji Reactions -->
+        <div id="reactions-container" class="reactions-container"></div>
+
+        <!-- Emoji / Hand Raise Popup Panel -->
+        <div id="emoji-popup-panel" class="emoji-popup-panel">
+            <button class="emoji-btn" data-emoji="👍" title="Thumbs up">👍</button>
+            <button class="emoji-btn" data-emoji="👏" title="Clap">👏</button>
+            <button class="emoji-btn" data-emoji="😂" title="Laugh">😂</button>
+            <button class="emoji-btn" data-emoji="😮" title="Wow">😮</button>
+            <button class="emoji-btn" data-emoji="❤️" title="Love">❤️</button>
+            <div class="panel-divider"></div>
+            <button class="hand-raise-popup-btn" id="hand-raise-btn" title="Raise hand">✋</button>
+        </div>
+
+        <!-- Notification Toast -->
+        <div id="meeting-notification" class="meeting-notification"></div>
+
+        <!-- Bottom Control Bar -->
+        <div id="control-bar" class="control-bar" style="display:none;">
+            <div class="control-bar-left">
+                <!-- Empty — for left-side controls if needed -->
+            </div>
+            <div class="control-bar-center">
+                <button class="ctrl-btn" id="ctrl-mic" title="Toggle microphone">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" id="ctrl-mic-icon">
+                        <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                    </svg>
+                </button>
+                <button class="ctrl-btn" id="ctrl-camera" title="Toggle camera">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" id="ctrl-camera-icon">
+                        <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                    </svg>
+                </button>
+                <button class="ctrl-btn" id="ctrl-screen" title="Share screen">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+                    </svg>
+                </button>
+                <button class="ctrl-btn emoji-toggle-btn" id="ctrl-reactions" title="Reactions">
+                    😊
+                </button>
+                <button class="ctrl-btn ctrl-btn-end" id="ctrl-leave" title="Leave call">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.1-.7-.28-.79-.73-1.68-1.36-2.66-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="control-bar-right">
+                <button class="ctrl-btn ctrl-btn-side" id="ctrl-chat" title="Chat">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
+                    <span id="chat-badge" class="side-btn-badge" style="display:none;">0</span>
+                </button>
+                <button class="ctrl-btn ctrl-btn-side" id="ctrl-participants" title="Participants">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                    </svg>
+                    <span class="side-btn-count" id="participant-count-badge">1</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Side Panel: Chat -->
+        <div id="chat-panel" class="side-panel" style="display:none;">
+            <div class="side-panel-header">
+                <h3>In-call messages</h3>
+                <button class="side-panel-close" id="chat-close">✕</button>
+            </div>
+            <div class="side-panel-body" id="chat-messages"></div>
+            <div class="side-panel-footer">
+                <input type="text" id="chat-input" placeholder="Send a message" maxlength="500" autocomplete="off">
+                <button id="chat-send" class="chat-send-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Side Panel: Participants -->
+        <div id="participants-panel" class="side-panel" style="display:none;">
+            <div class="side-panel-header">
+                <h3>Participants</h3>
+                <button class="side-panel-close" id="participants-close">✕</button>
+            </div>
+            <div class="side-panel-body" id="participants-list"></div>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/livekit-client@2/dist/livekit-client.umd.js"></script>
+    <script src="/js/landing.js"></script>
+    <script src="/js/meeting.js"></script>
+</body>
+</html>

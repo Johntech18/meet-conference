@@ -1,0 +1,8 @@
+name = "meet-token-worker"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+LIVEKIT_API_KEY = "your-api-key"
+LIVEKIT_API_SECRET = "your-api-secret"
+LIVEKIT_URL = "wss://your-livekit-server.fly.dev"

@@ -1,0 +1,12 @@
+{
+  "name": "meet-clone",
+  "version": "1.0.0",
+  "description": "Google Meet clone built with LiveKit",
+  "private": true,
+  "scripts": {
+    "dev": "cd server && npm run dev",
+    "start": "cd server && npm start",
+    "worker:dev": "cd worker && npm run dev",
+    "worker:deploy": "cd worker && npm run deploy"
+  }
+}
