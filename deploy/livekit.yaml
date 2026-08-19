@@ -6,9 +6,7 @@ rtc:
   use_external_ip: true
 
 keys:
-  devkey: secret
-  # Add production key here or via LIVEKIT_KEYS env var
-  # your-api-key: your-api-secret
+  your-production-key: 2GfKOQ7PejqBKK7LL636liCbKMqm2xJfUDMc0M5V1HyB
 
 logging:
   level: info
