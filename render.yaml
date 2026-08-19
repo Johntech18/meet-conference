@@ -1,6 +1,7 @@
 services:
+  # Service 1: LiveKit Media Server (Docker)
   - type: web
-    name: livekit-server
+    name: livekit-media
     runtime: image
     image:
       url: docker.io/livekit/livekit-server:latest
@@ -18,3 +19,23 @@ services:
         type: tcp
       - port: 50000-60000
         type: udp
+
+  # Service 2: Express App Server (Node.js)
+  - type: web
+    name: meet-app
+    runtime: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: LIVEKIT_URL
+        sync: false
+    healthCheckPath: /
+    ports:
+      - port: 3000
+        type: tcp

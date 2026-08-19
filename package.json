@@ -4,6 +4,7 @@
   "description": "Google Meet clone built with LiveKit",
   "private": true,
   "scripts": {
+    "build": "cd server && npm install",
     "dev": "cd server && npm run dev",
     "start": "cd server && npm start",
     "worker:dev": "cd worker && npm run dev",
