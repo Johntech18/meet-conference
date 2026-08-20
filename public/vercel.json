@@ -1,7 +1,7 @@
 {
     "rewrites": [
-        { "source": "/api/token", "destination": "https://meet-conference.officialjohntech.workers.dev/api/token" },
-        { "source": "/api/health", "destination": "https://meet-conference.officialjohntech.workers.dev/api/health" }
+        { "source": "/api/token", "destination": "https://meet-token-worker.officialjohntech.workers.dev/api/token" },
+        { "source": "/api/health", "destination": "https://meet-token-worker.officialjohntech.workers.dev/api/health" }
     ],
     "headers": [
         {
